@@ -8,57 +8,122 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <ul>
+                    <li><a href="#summersunsetfestival">SUMMER SUNSET FESTIVAL</a></li>
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#casal">O Casal</a></li>
                     <li><a href="#fotos">Fotos</a></li>
+                    <li><a href="#rsvp">Confirmação de Presença</a></li>
+                    <li><a href="#playlist">Playlist</a></li>
                     <li><a href="#local">Local</a></li>
                     <li><a href="#presentes">Presentes</a></li>
                 </ul>
             </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
     
     <main>
+        <section id="summersunsetfestival">
+            <div class="container">
+                <h2>SUMMER SUNSET FESTIVAL</h2>
+                <p>Nossa história de amor, que começou em um dia ensolarado de verão, nos trouxe até aqui. Mal podemos esperar para celebrar nosso casamento com vocês!</p>
+                <div class="hero-countdown">
+                    <h3>Contagem Regressiva</h3>
+                    <div id="countdown">
+                        <div class="countdown-item">
+                            <span id="days"></span>
+                            <span>Dias</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours"></span>
+                            <span>Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes"></span>
+                            <span>Minutos</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds"></span>
+                            <span>Segundos</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/wave-top.svg" alt="onda decorativa" class="decorative-wave">
+            </div>
+        </section>
+
         <section id="home" class="hero">
             <div class="container">
-                <img src="png/Papelaria_convite frente.png" alt="Convite de Casamento">
+                <div class="invitation-stack">
+                    <canvas id="confetti-canvas"></canvas>
+                    <img src="png/Papelaria_convite frente.png" alt="Convite de Casamento" class="invitation-card">
+                    <img src="png/Papelaria_convite frente.png" alt="Convite de Casamento" class="invitation-card">
+                    <img src="png/Papelaria_convite frente.png" alt="Convite de Casamento" class="invitation-card">
+                </div>
             </div>
         </section>
     
-        <section id="casal">
+             
+        <section id="rsvp">
             <div class="container">
-                <h2>Larissa & Alexandre</h2>
-                <p>Nossa história de amor, que começou em um dia ensolarado de verão, nos trouxe até aqui. Mal podemos esperar para celebrar nosso casamento com vocês!</p>
+                <h2>Confirmação de Presença</h2>
+                <p>Confirme sua presença clicando no botão.</p>
+                <a href="https://sites.icasei.com.br/larideco/pages/36553280" class="button" target="_blank">Confirmar Presença</a>
             </div>
         </section>
 
         <section id="fotos">
             <div class="container">
                 <h2>Galeria de Fotos</h2>
-                <div class="gallery">
-                    <img src="refs/laistorresfotografia-6.jpg" alt="Foto do casal 1">
-                    <img src="refs/laistorresfotografia-12.jpg" alt="Foto do casal 2">
-                    <img src="refs/laistorresfotografia-18.jpg" alt="Foto do casal 3">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-6.jpg" alt="Foto do casal 1"></div>
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-12.jpg" alt="Foto do casal 2"></div>
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-18.jpg" alt="Foto do casal 3"></div>
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-22.jpg" alt="Foto do casal 4"></div>
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-30.jpg" alt="Foto do casal 5"></div>
+                        <div class="carousel-slide"><img src="refs/laistorresfotografia-32.jpg" alt="Foto do casal 6"></div>
+                    </div>
+                    <button class="carousel-button prev-button">&#10094;</button>
+                    <button class="carousel-button next-button">&#10095;</button>
                 </div>
             </div>
         </section>
+
     
         <section id="local">
             <div class="container">
                 <h2>Local da Cerimônia</h2>
                 <p>A cerimônia será realizada no Bosque da Posse, um lugar mágico para um dia inesquecível.</p>
                 <div id="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.226565392352!2d-43.099458685045!3d-22.42040998525941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99099168173a31%3A0x8c8f8f36bce35b32!2sBosque%20da%20Posse!5e0!3m2!1spt-BR!2sbr!4v1678886424748!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.319742877328!2d-43.08543872391313!3d-22.265874715281956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9850d9343b2ef9%3A0xf26d539d5db48f13!2sAv.%20No%C3%AAmia%20Alves%20Rattes%2C%20874%20-%20Posse%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025770-320!5e0!3m2!1spt-BR!2sbr!4v1765341529385!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
+  
+
+        <section id="playlist">
+            <div class="container">
+                <h2>Nossa Trilha Sonora</h2>
+                <p>Entre no clima do nosso grande dia com as músicas que marcaram a nossa história. Dê o play!</p>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+        </section>
+
+
+ 
+        
         <section id="presentes">
             <div class="container">
                 <h2>Lista de Presentes</h2>
@@ -67,10 +132,28 @@
             </div>
         </section>
     </main>
-
-    <footer>
+    
+    <footer class="site-footer">
+ 
         <div class="container">
-            <p>Com amor, Larissa & Alexandre</p>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Summer Sunset Festival</h3>
+                    <p>Com amor, Larissa & Alexandre</p>
+                    <p>Esperamos por vocês para celebrar conosco!</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Larissa & Alexandre. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
     
