@@ -132,46 +132,83 @@
         transform: none; /* Reset transform on hover for mobile */
     }
 
-    /* Carousel Adjustments */
+    /* Scroll-Snapping Horizontal Gallery Adjustments */
     #fotos .container {
-        overflow: hidden; /* Hide any overflowing content from the carousel */
+        overflow: hidden !important; /* Hide overflow outside the scrollable area */
+        /* display: block !important; -- No need for this on fotos .container */
     }
 
-    .carousel-container {
-        /* Drastically reduce size - aim for roughly 50% of previous size */
-        width: 60vw; /* Use vw for better scaling on different screen sizes */
-        max-width: 200px; /* Reduced from 300px, roughly 50% of original desktop carousel width (550px) scaled for mobile */
-        margin: 15px auto; /* Reduced margin */
-        perspective: 300px; /* Further reduced perspective for a "flatter" 3D effect */
+    .carousel-container { /* This will be the scrollable container */
+        all: unset !important; /* Reset to ensure clean slate */
+        display: flex !important; /* Arrange track/slides horizontally */
+        overflow-x: scroll !important; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory !important; /* Mandatory snapping to x-axis */
+        -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
+        scrollbar-width: none !important; /* Hide Firefox scrollbar */
+        -ms-overflow-style: none !important; /* Hide IE/Edge scrollbar */
+        margin: 20px auto !important; /* Center the entire scrollable area */
+        max-width: 100% !important; /* Use full available width */
+        width: 100% !important; /* Ensure full width */
+        padding: 0 !important; /* No padding on container itself */
+        justify-content: flex-start !important; /* Start items from the beginning */
+        align-items: center !important; /* Center items vertically if they have different heights */
+    }
+
+    /* Hide WebKit scrollbar */
+    .carousel-container::-webkit-scrollbar {
+        display: none !important;
     }
 
     .carousel-track {
-        height: 100px; /* Reduced from 150px, roughly 50% of previous mobile height */
+        all: unset !important; /* Reset to ensure clean slate */
+        display: flex !important; /* Arrange slides horizontally inside the track */
+        flex-shrink: 0 !important; /* Prevent track from shrinking */
+        width: fit-content !important; /* Track width adjusts to content */
+        height: auto !important;
+        transform: none !important; /* Ensure no 3D transforms */
+        transform-style: flat !important;
+        perspective: none !important;
+        position: static !important;
     }
 
     .carousel-slide {
-        width: 90%; /* Keep as 90% of its parent container */
-        height: 80px; /* Reduced from 130px, roughly 50% of previous mobile height */
-        left: 50%;
-        transform: translateX(-50%);
+        all: unset !important; /* Reset to ensure clean slate */
+        scroll-snap-align: center !important; /* Snap each slide to center */
+        flex-shrink: 0 !important; /* Prevent slides from shrinking */
+        width: 85vw !important; /* Each slide takes 85% of viewport width */
+        height: 180px !important; /* Fixed height for consistency */
+        margin: 0 5px !important; /* Spacing between slides */
+        display: block !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+        background-color: #f0f0f0 !important; /* Placeholder background */
     }
 
+    /* Adjust margins for first and last slide to ensure proper centering with scroll-snap-align: center */
+    .carousel-slide:first-child {
+        margin-left: calc(50vw - 85vw/2) !important; /* Center the first slide */
+    }
+
+    .carousel-slide:last-child {
+        margin-right: calc(50vw - 85vw/2) !important; /* Center the last slide */
+    }
+
+    .carousel-slide img {
+        all: unset !important; /* Reset to ensure clean slate */
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Cover the area, cropping if necessary */
+        display: block !important;
+    }
+
+    /* Hide carousel buttons completely */
     .carousel-button {
-        font-size: 1.3em; /* Slightly increased for visibility */
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 0 3px;
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 50%;
+        display: none !important; /* Force hide */
     }
 
-    .prev-button {
-        left: -15px; /* Adjust to be closer to the slides */
-    }
 
-    .next-button {
-        right: -15px; /* Adjust to be closer to the slides */
-    }
 
     /* Map Adjustments */
     #map iframe {
