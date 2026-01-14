@@ -6,11 +6,262 @@
     <title>Larissa & Alexandre</title>
     <link rel="icon" href="images/favicon.PNG" type="image/png">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @media (max-width: 768px) {
+            /* Responsive navigation - existing styles */
+            header nav ul {
+                display: none; /* Hide nav by default on mobile */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%; /* Position below header */
+                left: 0;
+                background: rgba(51, 51, 51, 0.95); /* Slightly darker background when open */
+                border-top: 1px solid rgba(255,255,255,0.1);
+                padding: 20px 0;
+            }
+
+            header nav ul.active {
+                display: flex; /* Show nav when active */
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
+
+            header nav ul li a {
+                font-size: 1.1em; /* Slightly smaller font for nav links */
+                padding: 8px 0;
+            }
+
+            .menu-toggle {
+                display: flex; /* Show hamburger menu on mobile */
+            }
+
+            header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                padding: 0 15px; /* Adjust header container padding */
+            }
+
+            header nav {
+                width: 100%;
+            }
+
+            /* General adjustments */
+            body {
+                font-size: 14px; /* Slightly smaller base font size for mobile */
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 30px 0; /* Reduced section padding */
+            }
+
+            section h2 {
+                font-size: 2em; /* Smaller headings */
+                margin-bottom: 15px;
+            }
+
+            /* #summersunsetfestival adjustments */
+            #summersunsetfestival {
+                padding: 60px 0 50px; /* Adjusted padding */
+                background-position: center center; /* More general background position */
+                background-size: cover; /* Ensure full cover */
+            }
+
+            #summersunsetfestival h2 {
+                font-size: 2.2em; /* Adjusted specific h2 for this section */
+                line-height: 1.2;
+            }
+
+            #summersunsetfestival p {
+                font-size: 0.9em; /* Smaller paragraph text */
+            }
+
+            .hero-countdown h3 {
+                font-size: 1.5em; /* Smaller countdown heading */
+                margin-bottom: 15px;
+            }
+
+            .hero-countdown #countdown {
+                flex-direction: row; /* Keep items in a row if space allows, but wrap */
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .hero-countdown .countdown-item {
+                min-width: 70px; /* Adjusted min-width */
+                width: auto; /* Allow width to be determined by content */
+                flex: 1 1 auto; /* Allow items to grow and shrink */
+                padding: 10px 12px; /* Adjusted padding */
+            }
+
+            .countdown-item span:first-child {
+                font-size: 1.8em; /* Smaller countdown numbers */
+            }
+
+            .decorative-wave {
+                bottom: -5px; /* Slightly adjust wave position */
+            }
+
+            /* Invitation Stack Adjustments */
+            .invitation-stack {
+                margin: 20px auto; /* Reduced margin */
+                max-width: 95%; /* Increased max-width for better use of space */
+            }
+
+            .invitation-card:nth-of-type(1) {
+                transform: rotate(0deg); 
+            }
+            
+            .invitation-card:nth-of-type(2) {
+                transform: rotate(-1.5deg) translate(-2px, -2px); /* Even less rotation and translation */
+            }
+            
+            .invitation-card:nth-of-type(3) {
+                transform: rotate(1.5deg) translate(2px, 2px); /* Even less rotation and translation */
+            }
+
+            /* Remove hover effects for mobile as they are not practical on touch devices */
+            .invitation-stack:hover .invitation-card:nth-of-type(1),
+            .invitation-stack:hover .invitation-card:nth-of-type(2),
+            .invitation-stack:hover .invitation-card:nth-of-type(3) {
+                transform: none; /* Reset transform on hover for mobile */
+            }
+
+            /* Scroll-Snapping Horizontal Gallery Adjustments */
+            #fotos .container {
+                overflow: hidden !important; /* Hide overflow outside the scrollable area */
+                /* display: block !important; -- No need for this on fotos .container */
+            }
+
+            .carousel-container { /* This will be the scrollable container */
+                all: unset !important; /* Reset to ensure clean slate */
+                display: flex !important; /* Arrange track/slides horizontally */
+                overflow-x: scroll !important; /* Enable horizontal scrolling */
+                scroll-snap-type: x mandatory !important; /* Mandatory snapping to x-axis */
+                -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
+                scrollbar-width: none !important; /* Hide Firefox scrollbar */
+                -ms-overflow-style: none !important; /* Hide IE/Edge scrollbar */
+                margin: 20px auto !important; /* Center the entire scrollable area */
+                max-width: 100% !important; /* Use full available width */
+                width: 100% !important; /* Ensure full width */
+                padding: 0 !important; /* No padding on container itself */
+                justify-content: flex-start !important; /* Start items from the beginning */
+                align-items: center !important; /* Center items vertically if they have different heights */
+            }
+
+            /* Hide WebKit scrollbar */
+            .carousel-container::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .carousel-track {
+                all: unset !important; /* Reset to ensure clean slate */
+                display: flex !important; /* Arrange slides horizontally inside the track */
+                flex-shrink: 0 !important; /* Prevent track from shrinking */
+                width: fit-content !important; /* Track width adjusts to content */
+                height: auto !important;
+                transform: none !important; /* Ensure no 3D transforms */
+                transform-style: flat !important;
+                perspective: none !important;
+                position: static !important;
+            }
+
+            .carousel-slide {
+                all: unset !important; /* Reset to ensure clean slate */
+                scroll-snap-align: center !important; /* Snap each slide to center */
+                flex-shrink: 0 !important; /* Prevent slides from shrinking */
+                width: 85vw !important; /* Each slide takes 85% of viewport width */
+                height: 180px !important; /* Fixed height for consistency */
+                margin: 0 5px !important; /* Spacing between slides */
+                display: block !important;
+                position: relative !important;
+                overflow: hidden !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+                background-color: #f0f0f0 !important; /* Placeholder background */
+            }
+
+            /* Adjust margins for first and last slide to ensure proper centering with scroll-snap-align: center */
+            .carousel-slide:first-child {
+                margin-left: calc(50vw - 85vw/2) !important; /* Center the first slide */
+            }
+
+            .carousel-slide:last-child {
+                margin-right: calc(50vw - 85vw/2) !important; /* Center the last slide */
+            }
+
+            .carousel-slide img {
+                all: unset !important; /* Reset to ensure clean slate */
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important; /* Cover the area, cropping if necessary */
+                display: block !important;
+            }
+
+            /* Hide carousel buttons completely */
+            .carousel-button {
+                display: none !important; /* Force hide */
+            }
+
+
+
+            /* Map Adjustments */
+            #map iframe {
+                height: 250px; /* Make map smaller on mobile */
+            }
+
+            /* Spotify Playlist Adjustments */
+            #playlist iframe {
+                height: 200px; /* Make playlist embed smaller on mobile */
+            }
+
+            /* Button adjustments */
+            .button {
+                padding: 10px 25px; /* Smaller button padding */
+                font-size: 0.9em;
+            }
+
+            /* Footer Adjustments */
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px; /* Reduced gap */
+            }
+
+            .site-footer h3 {
+                font-size: 1.5em; /* Smaller footer headings */
+                margin-bottom: 10px;
+            }
+
+            .footer-social {
+                display: none !important;
+            }
+
+            .footer-bottom {
+                padding-top: 15px;
+                margin-top: 15px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -38,7 +289,7 @@
         <section id="summersunsetfestival">
             <div class="container">
                 <h2>SUMMER SUNSET FESTIVAL</h2>
-                <p>Nossa história de amor, que começou em um dia ensolarado de verão, nos trouxe até aqui. Mal podemos esperar para celebrar nosso casamento com vocês!</p>
+                <p>Inspirados pelos festivais de música que celebram liberdade, amor, os encontros e a alegria de estar junto, criamos um casamento para ser vivido como um grande show. Um convite para chegar leve, vestir o clima do festival e celebrar esse novo capítulo ao nosso lado.</p>
                 <div class="hero-countdown">
                     <h3>Contagem Regressiva</h3>
                     <div id="countdown">
@@ -106,7 +357,8 @@
         <section id="local">
             <div class="container">
                 <h2>Local da Cerimônia</h2>
-                <p>A cerimônia será realizada no Bosque da Posse, um lugar mágico para um dia inesquecível.</p>
+                <p>A cerimônia será realizada no Bosque da Posse. <br>
+                    Av. Noêmia Alves Rattes, 874 - Posse, RJ.</p>
                 <div id="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.319742877328!2d-43.08543872391313!3d-22.265874715281956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9850d9343b2ef9%3A0xf26d539d5db48f13!2sAv.%20No%C3%AAmia%20Alves%20Rattes%2C%20874%20-%20Posse%2C%20Petr%C3%B3polis%20-%20RJ%2C%2025770-320!5e0!3m2!1spt-BR!2sbr!4v1765341529385!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -129,7 +381,7 @@
         <section id="presentes">
             <div class="container">
                 <h2>Lista de Presentes</h2>
-                <p>Sua presença é nosso maior presente, mas se desejar, pode nos ajudar a montar nosso novo lar.</p>
+                <p>Já dividimos a vida e a casa, mas estamos começando um novo capítulo juntos. Selecionamos itens escolhidos com muito carinho. Cada escolha aqui ajuda a construir memórias que vão nos acompanhar para sempre.</p>
                 <a href="https://sites.icasei.com.br/larideco/pages/36553547" class="button">Ver Lista de Presentes</a>
             </div>
         </section>
@@ -161,6 +413,14 @@
     
     </main>
     <script src="js/main.js"></script>
+    <script>
+        // Load mobile-specific infinite gallery script if on a mobile device
+        if (window.innerWidth <= 768) {
+            const mobileInfiniteGalleryScript = document.createElement('script');
+            mobileInfiniteGalleryScript.src = 'js/mobile-infinite-gallery.js';
+            document.body.appendChild(mobileInfiniteGalleryScript);
+        }
+    </script>
 
 </body>
 </html>

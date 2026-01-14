@@ -145,7 +145,6 @@ if (invitationStack && canvas) {
     const ctx = canvas.getContext('2d');
     let confetti = [];
     let animationFrameId;
-    let confettiTimer; // Declare confettiTimer
 
     const resizeCanvas = () => {
         canvas.width = invitationStack.offsetWidth;
@@ -202,35 +201,20 @@ if (invitationStack && canvas) {
         animationFrameId = requestAnimationFrame(animateConfetti);
     }
 
-    // Function to stop confetti
-    function stopConfetti() {
-        if (animationFrameId) {
-            cancelAnimationFrame(animationFrameId);
-            animationFrameId = null; // Reset animation frame ID
-        }
-        // ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas - removed for smoother stop
-        if (confettiTimer) {
-            clearTimeout(confettiTimer);
-            confettiTimer = null; // Reset timer ID
-        }
-    }
-
     invitationStack.addEventListener('mouseenter', () => {
-        // Stop any existing animation/timer
-        stopConfetti(); 
-
         resizeCanvas();
         createConfetti();
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
         animateConfetti();
-
-        // Start timer to stop confetti after 3 seconds
-        confettiTimer = setTimeout(() => {
-            stopConfetti();
-        }, 3000); // 3000 milliseconds = 3 seconds
     });
 
     invitationStack.addEventListener('mouseleave', () => {
-        stopConfetti(); // Stop confetti immediately on mouse leave
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
 
     window.addEventListener('resize', resizeCanvas);
