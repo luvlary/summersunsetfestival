@@ -6,6 +6,7 @@
     <title>Larissa & Alexandre</title>
     <link rel="icon" href="images/favicon.PNG" type="image/png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -159,5 +160,13 @@
     </footer>
     
     <script src="js/main.js"></script>
+    <script>
+        // Load mobile-specific carousel script if on a mobile device
+        if (window.innerWidth <= 768) {
+            const mobileCarouselScript = document.createElement('script');
+            mobileCarouselScript.src = 'js/mobile-carousel.js';
+            document.body.appendChild(mobileCarouselScript);
+        }
+    </script>
 </body>
 </html>
